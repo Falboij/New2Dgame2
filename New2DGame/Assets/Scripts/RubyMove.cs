@@ -5,11 +5,12 @@ using UnityEngine;
 public class RubyMove : MonoBehaviour
 {
     public float moveSpeed;
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();        
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class RubyMove : MonoBehaviour
         Vector2 rubyPosition = transform.position;
         rubyPosition.x = rubyPosition.x + moveSpeed * Input.GetAxis("Horizontal");
         rubyPosition.y = rubyPosition.y + moveSpeed * Input.GetAxis("Vertical");
-        transform.position = rubyPosition;
+        //transform.position = rubyPosition;
+        rb.MovePosition(rubyPosition);
     }
 }
